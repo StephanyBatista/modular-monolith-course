@@ -1,0 +1,12 @@
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/bin/Debug/net8.0/EGeek.Id.deps.json
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/bin/Debug/net8.0/EGeek.Id.dll
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/bin/Debug/net8.0/EGeek.Id.pdb
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.GeneratedMSBuildEditorConfig.editorconfig
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.AssemblyInfoInputs.cache
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.AssemblyInfo.cs
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.csproj.CoreCompileInputs.cache
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.dll
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/refint/EGeek.Id.dll
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.pdb
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/ref/EGeek.Id.dll
+/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/Debug/net8.0/EGeek.Id.csproj.AssemblyReference.cache

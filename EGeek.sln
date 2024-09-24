@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Api", "EGeek.Api\EGeek.Api.csproj", "{B4F02122-CD80-4430-BBAA-A6F90DD50187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Id", "EGeek.Id\EGeek.Id.csproj", "{5BA9CFC4-ED3B-4BDF-9B82-5DD8D7410050}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4F02122-CD80-4430-BBAA-A6F90DD50187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F02122-CD80-4430-BBAA-A6F90DD50187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F02122-CD80-4430-BBAA-A6F90DD50187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F02122-CD80-4430-BBAA-A6F90DD50187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA9CFC4-ED3B-4BDF-9B82-5DD8D7410050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA9CFC4-ED3B-4BDF-9B82-5DD8D7410050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA9CFC4-ED3B-4BDF-9B82-5DD8D7410050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA9CFC4-ED3B-4BDF-9B82-5DD8D7410050}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

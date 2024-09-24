@@ -1,0 +1,13 @@
+@url = http://localhost:5121
+
+POST {{url}}/v1/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "catalog@egeek.com",
+  "password": "@Test01",
+  "role": "catalog"
+}
+
+###
