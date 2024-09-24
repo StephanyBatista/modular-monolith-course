@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj": {}
+    "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj": {}
   },
   "projects": {
-    "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj": {
+    "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj",
+        "projectUniqueName": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj",
         "projectName": "EGeek.Id",
-        "projectPath": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj",
+        "projectPath": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj",
         "packagesPath": "/Users/steabatista/.nuget/packages/",
-        "outputPath": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/obj/",
+        "outputPath": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/steabatista/.nuget/NuGet/NuGet.Config"

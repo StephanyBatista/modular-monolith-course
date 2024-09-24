@@ -3107,11 +3107,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Api/EGeek.Api.csproj",
+      "projectUniqueName": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Api/EGeek.Api.csproj",
       "projectName": "EGeek.Api",
-      "projectPath": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Api/EGeek.Api.csproj",
+      "projectPath": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Api/EGeek.Api.csproj",
       "packagesPath": "/Users/steabatista/.nuget/packages/",
-      "outputPath": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Api/obj/",
+      "outputPath": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/steabatista/.nuget/NuGet/NuGet.Config"
@@ -3126,8 +3126,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj": {
-              "projectPath": "/Users/steabatista/Documents/Courses/EGeek/EGeek.Id/EGeek.Id.csproj"
+            "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj": {
+              "projectPath": "/Users/steabatista/Documents/Courses/modular-monolith-course/EGeek.Id/EGeek.Id.csproj"
             }
           }
         }
