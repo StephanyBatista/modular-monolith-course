@@ -1,3 +1,4 @@
+using EGeek.Api;
 using EGeek.Id;
 using EGeek.Id.Config;
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddExceptionHandler<GlobalException>();
+builder.Services.AddProblemDetails();
 
 IdModularExtension.Apply(builder.Services, builder.Configuration);
 
@@ -22,5 +25,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 IdConfigApp.Apply(app);
+
+app.UseExceptionHandler();
 
 app.Run();

@@ -134,4 +134,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+EGeek.Id/obj
+**/bin/
 
