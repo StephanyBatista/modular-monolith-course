@@ -8,28 +8,16 @@ namespace EGeek.Id;
 public static class PostUserUseCase
 {
     public static async Task<Created<string>> Action(
-        CreateUserRequest request,
+        PostUserRequest request,
         UserManager<User> userManager)
     {
-        if (string.IsNullOrEmpty(request.Email))
-            throw new ArgumentException("Email is required");
-        if(string.IsNullOrEmpty(request.Password))
-            throw new ArgumentException("Password is required");
-        if(string.IsNullOrEmpty(request.Role))
-            throw new ArgumentException("Role is required");
+        var user = new User(request);
 
-        var user = new User
-        {
-            UserName = request.Email,
-            Email = request.Email,
-        };
-
-        var result = await userManager.CreateAsync(user, request.Password);
+        var result = await userManager.CreateAsync(user, user.PasswordToSave);
         if(!result.Succeeded)
             throw new ApplicationException(result.Errors.First().Description);
         
-        var roleClaim = new Claim(ClaimTypes.Role, request.Role);
-        result = await userManager.AddClaimAsync(user, roleClaim);
+        result = await userManager.AddClaimAsync(user, user.RoleClaim);
         if(!result.Succeeded)
             throw new ApplicationException("Failed to add claim to user.");
         

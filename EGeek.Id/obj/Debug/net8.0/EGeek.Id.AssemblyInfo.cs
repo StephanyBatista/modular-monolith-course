@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EGeek.Id")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b66014c12dd3c20803b4e51f26e18a233544ce63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8205656843de68c4dd1e94c6cfc905a7162d734")]
 [assembly: System.Reflection.AssemblyProductAttribute("EGeek.Id")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EGeek.Id")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
