@@ -5,9 +5,20 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "",
+  "email": "catalog2@eggek.com",
   "password": "@Test01",
   "role": "catalog"
+}
+
+###
+
+POST {{url}}/v1/token/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "catalog2@eggek.com",
+  "password": "@Test01"
 }
 
 ###
