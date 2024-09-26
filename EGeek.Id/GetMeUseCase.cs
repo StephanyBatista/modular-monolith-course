@@ -1,0 +1,23 @@
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
+
+namespace EGeek.Id;
+
+public static class GetMeUseCase
+{
+    [Authorize]
+    public static async Task<Ok<MeResponse>> Action(
+        ClaimsPrincipal principal, 
+        UserManager<User> userManager)
+    {
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
+        var user = await userManager.FindByEmailAsync(email);
+        var claims = await userManager.GetClaimsAsync(user);
+        var role = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+        return TypedResults.Ok(new MeResponse(user.Id, email, role));
+    }
+}

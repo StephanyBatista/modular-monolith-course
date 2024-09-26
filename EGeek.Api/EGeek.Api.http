@@ -12,6 +12,15 @@ Content-Type: application/json
 
 ###
 
+GET {{url}}/v1/users/me
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJjYXRhbG9nMkBlZ2dlay5jb20iLCJleHAiOjE3MjczOTAyOTUsImlzcyI6ImVHZWVrZSIsImF1ZCI6ImVHZWVrZSJ9.uaNY22wcV8Pf9gQLwOr5zanxh2KW3cjvOqdtXenHW5g
+
+
+
+###
+
 POST {{url}}/v1/token/
 Accept: application/json
 Content-Type: application/json
