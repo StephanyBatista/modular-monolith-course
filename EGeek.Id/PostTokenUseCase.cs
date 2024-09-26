@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace EGeek.Id;
 
-public static class PostTokenUseCase
+internal static class PostTokenUseCase
 {
     public static async Task<Results<Ok<string>, UnauthorizedHttpResult>> Action(
         PostTokenRequest request, 
@@ -29,7 +29,7 @@ public static class PostTokenUseCase
         if (!result)
             return TypedResults.Unauthorized();
         
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         
         var token = new JwtSecurityToken(configuration["Jwt:Issuer"],

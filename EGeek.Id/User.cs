@@ -5,14 +5,18 @@ using Microsoft.AspNetCore.Identity;
 
 namespace EGeek.Id;
 
-public class User : IdentityUser
+internal class User : IdentityUser
 {
     [NotMapped]
     public string PasswordToSave { get; private set; }
     [NotMapped]
     public Claim RoleClaim { get; private set; }
-    
-    private User(){}
+
+    private User()
+    {
+        PasswordToSave = string.Empty;
+        RoleClaim = new Claim(ClaimTypes.Role, string.Empty);
+    }
     
     public User(PostUserRequest request)
     {

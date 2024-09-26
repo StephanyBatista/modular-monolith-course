@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace EGeek.Id;
 
-public static class PostUserUseCase
+internal static class PostUserUseCase
 {
     public static async Task<Created<string>> Action(
         PostUserRequest request,

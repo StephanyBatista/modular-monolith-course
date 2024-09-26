@@ -1,5 +1,6 @@
 using System.Text;
 using EGeek.Api;
+using EGeek.Catalog.Config;
 using EGeek.Id;
 using EGeek.Id.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,6 +16,7 @@ builder.Services.AddExceptionHandler<GlobalException>();
 builder.Services.AddProblemDetails();
 
 IdModularExtension.Apply(builder.Services, builder.Configuration);
+CatalogModularExtension.Apply(builder.Services, builder.Configuration);
 
 builder.Services.AddAuthentication(x =>
 {
@@ -34,7 +36,7 @@ builder.Services.AddAuthentication(x =>
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
     };
 });
 builder.Services.AddAuthorization();

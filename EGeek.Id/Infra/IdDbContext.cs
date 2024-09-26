@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EGeek.Id.Infra;
 
-public class IdDbContext(DbContextOptions<IdDbContext> options) : IdentityDbContext<User>(options)
+internal class IdDbContext(DbContextOptions<IdDbContext> options) : IdentityDbContext<User>(options)
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

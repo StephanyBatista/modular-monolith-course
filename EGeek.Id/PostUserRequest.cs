@@ -1,3 +1,3 @@
 ﻿namespace EGeek.Id;
 
-public record PostUserRequest(string Email, string Password, string Role);
+internal record PostUserRequest(string Email, string Password, string Role);
