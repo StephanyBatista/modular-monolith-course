@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using EGeek.Api;
 using EGeek.Catalog.Config;
@@ -15,8 +16,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalException>();
 builder.Services.AddProblemDetails();
 
-IdModularExtension.Apply(builder.Services, builder.Configuration);
-CatalogModularExtension.Apply(builder.Services, builder.Configuration);
+List<Assembly> mediatoRAssembly = [typeof(Program).Assembly];
+
+IdModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
+CatalogModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
+
+builder.Services.AddMediatR(config => 
+    config.RegisterServicesFromAssemblies(mediatoRAssembly.ToArray()));
 
 builder.Services.AddAuthentication(x =>
 {
@@ -53,6 +59,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 IdConfigApp.Apply(app);
+CatalogConfigApp.Apply(app);
 
 app.UseExceptionHandler();
 

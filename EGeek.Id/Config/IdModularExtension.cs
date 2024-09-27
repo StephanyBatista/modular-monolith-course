@@ -1,3 +1,4 @@
+using System.Reflection;
 using EGeek.Id.Infra;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,10 @@ namespace EGeek.Id.Config;
 
 public static class IdModularExtension
 {
-    public static void Apply(IServiceCollection services, ConfigurationManager configuration)
+    public static void Apply(
+        IServiceCollection services, 
+        ConfigurationManager configuration,
+        List<Assembly> mediatoRAssembly)
     {
         services.AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<IdDbContext>()
@@ -19,5 +23,7 @@ public static class IdModularExtension
             options.UseNpgsql(configuration.GetConnectionString("IdConnection"),
                 config => config.MigrationsHistoryTable("__EFMigrationsHistory", "id"));
         });
+        
+        mediatoRAssembly.Add(typeof(IdModularExtension).Assembly);
     }
 }

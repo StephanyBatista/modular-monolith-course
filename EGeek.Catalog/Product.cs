@@ -1,19 +1,28 @@
-﻿namespace EGeek.Catalog;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EGeek.Catalog;
 
 internal class Product
 {
+    [MaxLength(36)]
     public string Id { get; private set; }
+    [MaxLength(255)]
     public string Name { get; private set; }
+    [MaxLength(512)]
     public string Description { get; private set; }
     public decimal Price { get; private set; }
     public int QuantityInStock { get; private set; }
     public int WeightInGrams { get; private set; }
     public int HeightInCentimeters { get; private set; }
     public int WidthInCentimeters { get; private set; }
+    [MaxLength(128)]
     public string CreatedBy { get; private set; }
     public DateTime CreatedAt { get; private set; }
+    [MaxLength(128)]
     public string? UpdatedBy { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
+    
+    private Product() {}
 
     public Product(PostProductRequest request, string email)
     {
