@@ -52,4 +52,12 @@ internal class Product
         CreatedBy = email;
         CreatedAt = DateTime.UtcNow;
     }
+
+    public void AddQuantityInStock(int quantity)
+    {
+        if(quantity < 0)
+            throw new ArgumentException("Quantity must be greater than or equal to zero");
+        
+        QuantityInStock += quantity;
+    }
 }
