@@ -21,7 +21,7 @@ internal static class PostProductUseCase
         var query = new GetUserQuery(email);
         var result = await mediator.Send(query);
 
-        if (result.Role != "Catalog")
+        if (result.Role != "catalog")
             return TypedResults.Unauthorized();
         
         var product = new Product(request, email);

@@ -24,6 +24,8 @@ internal class User : IdentityUser
             throw new ArgumentException("Email is required");
         if(string.IsNullOrEmpty(request.Role))
             throw new ArgumentException("Role is required");
+        if (request.Role != "catalog" && request.Role != "client")
+            throw new ArgumentException("Invalid Role. Should be 'catalog' or 'client'");
         if(string.IsNullOrEmpty(request.Password))
             throw new ArgumentException("Password is required");
         if(request.Password.Length < 6)

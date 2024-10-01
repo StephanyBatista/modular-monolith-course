@@ -5,9 +5,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "catalog2@eggek.com",
-  "password": "@Test01",
-  "role": "catalog"
+  "email": "client@eggek.com",
+  "password": "@Test02",
+  "role": "client"
 }
 
 ###
@@ -15,8 +15,7 @@ Content-Type: application/json
 GET {{url}}/v1/users/me
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJjYXRhbG9nMkBlZ2dlay5jb20iLCJleHAiOjE3MjczOTAyOTUsImlzcyI6ImVHZWVrZSIsImF1ZCI6ImVHZWVrZSJ9.uaNY22wcV8Pf9gQLwOr5zanxh2KW3cjvOqdtXenHW5g
-
+Authorization: Bearer {{auth_token}}
 
 
 ###
@@ -30,4 +29,26 @@ Content-Type: application/json
   "password": "@Test01"
 }
 
+> {%
+    client.global.set("auth_token", response.body);
+%}
+
 ###
+
+POST {{url}}/v1/catalog/products/
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "name": "Sample Product",
+  "description": "This is a sample product description.",
+  "price": 99.99,
+  "quantityInStock": 50,
+  "weightInGrams": 500,
+  "heightInCentimeters": 10,
+  "widthInCentimeters": 5
+}
+
+###
+
