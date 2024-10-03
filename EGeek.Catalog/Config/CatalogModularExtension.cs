@@ -18,5 +18,6 @@ public static class CatalogModularExtension
                 config => config.MigrationsHistoryTable("__EFMigrationsHistory", "catalog"));
         });
         mediatoRAssembly.Add(typeof(CatalogModularExtension).Assembly);
+        services.AddScoped<RoleValidator>();
     }
 }

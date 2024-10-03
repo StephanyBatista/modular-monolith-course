@@ -14,17 +14,13 @@ internal static class PostProductUseCase
         PostProductRequest request,
         ClaimsPrincipal principal,
         CatalogDbContext context,
-        IMediator mediator)
+        RoleValidator roleValidator)
     {
-        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
-        
-        var query = new GetUserQuery(email);
-        var result = await mediator.Send(query);
-
-        if (result.Role != "catalog")
+        if (!await roleValidator.Validate(principal))
             return TypedResults.Unauthorized();
         
-        var product = new Product(request, email);
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
+        var product = new Product(request, email!);
         context.Products.Add(product);
         await context.SaveChangesAsync();
         

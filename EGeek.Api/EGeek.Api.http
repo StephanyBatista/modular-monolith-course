@@ -69,7 +69,7 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "price": 10.50
+  "price": 10.30
 }
 
 ###
