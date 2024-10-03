@@ -8,5 +8,6 @@ public static class CatalogConfigApp
     {
         app.MapPost("/v1/catalog/products", PostProductUseCase.Action);
         app.MapPatch("/v1/catalog/products/{id}/stock", PatchStockUseCase.Action);
+        app.MapPatch("/v1/catalog/products/{id}/price", PatchPriceUseCase.Action);
     }
 }

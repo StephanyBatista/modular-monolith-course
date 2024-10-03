@@ -63,3 +63,14 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+PATCH {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc/price
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "price": 10.50
+}
+
+###
+

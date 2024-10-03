@@ -60,4 +60,12 @@ internal class Product
         
         QuantityInStock += quantity;
     }
+
+    public void ChangePrice(decimal price)
+    {
+        if(price <= 0)
+            throw new ArgumentException("Price must be greater than zero");
+        
+        Price = price;
+    }
 }
