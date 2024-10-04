@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace EGeek.Catalog;
+namespace EGeek.Catalog.Infra;
 
 internal class CatalogDbContext(DbContextOptions<CatalogDbContext> options) : DbContext(options)
 {

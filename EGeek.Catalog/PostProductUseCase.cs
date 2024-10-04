@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using EGeek.Catalog.Infra;
 using EGeek.Id.Contract;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

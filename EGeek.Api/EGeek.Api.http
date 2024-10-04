@@ -52,6 +52,18 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+GET {{url}}/v1/catalog/products
+Accept: application/json
+Content-Type: application/json
+
+###
+
+GET {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc
+Accept: application/json
+Content-Type: application/json
+
+###
+
 PATCH {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc/stock
 Accept: application/json
 Content-Type: application/json
