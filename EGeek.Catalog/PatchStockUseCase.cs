@@ -23,7 +23,9 @@ internal static class PatchStockUseCase
         var product = await context.Products.FindAsync(id);
         if (product == null)
             return TypedResults.NotFound();
-        product.AddQuantityInStock(request.QuantityInStock);
+        
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
+        product.AddQuantityInStock(request.QuantityInStock, email!);
         await context.SaveChangesAsync();
         
         return TypedResults.Ok();

@@ -23,7 +23,10 @@ internal static class PatchPriceUseCase
         var product = await context.Products.FindAsync(id);
         if (product == null)
             return TypedResults.NotFound();
-        product.ChangePrice(request.Price);
+        
+        var email = principal.FindFirst(ClaimTypes.Email)?.Value;
+        product.ChangePrice(request.Price, email!);
+        
         await context.SaveChangesAsync();
         
         return TypedResults.Ok();

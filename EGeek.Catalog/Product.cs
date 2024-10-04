@@ -21,6 +21,7 @@ internal class Product
     [MaxLength(128)]
     public string? UpdatedBy { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
+    public List<ChangeTracker> ChangeTrackers { get; private set; } = [];
     
     private Product() {}
 
@@ -53,19 +54,21 @@ internal class Product
         CreatedAt = DateTime.UtcNow;
     }
 
-    public void AddQuantityInStock(int quantity)
+    public void AddQuantityInStock(int quantity, string changedBy)
     {
         if(quantity < 0)
             throw new ArgumentException("Quantity must be greater than or equal to zero");
         
         QuantityInStock += quantity;
+        ChangeTrackers.Add(new ChangeTracker(changedBy, QuantityInStock, null));
     }
 
-    public void ChangePrice(decimal price)
+    public void ChangePrice(decimal price, string changedBy)
     {
         if(price <= 0)
             throw new ArgumentException("Price must be greater than zero");
         
         Price = price;
+        ChangeTrackers.Add(new ChangeTracker(changedBy, null, Price));
     }
 }
