@@ -1,3 +1,4 @@
+using EGeek.Id.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

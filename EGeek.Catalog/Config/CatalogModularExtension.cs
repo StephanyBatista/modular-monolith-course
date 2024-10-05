@@ -1,5 +1,6 @@
 using System.Reflection;
 using EGeek.Catalog.Infra;
+using EGeek.Catalog.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

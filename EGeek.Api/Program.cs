@@ -2,7 +2,6 @@ using System.Reflection;
 using System.Text;
 using EGeek.Api;
 using EGeek.Catalog.Config;
-using EGeek.Id;
 using EGeek.Id.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

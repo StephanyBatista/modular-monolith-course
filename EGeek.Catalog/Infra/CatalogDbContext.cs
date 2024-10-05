@@ -1,3 +1,4 @@
+using EGeek.Catalog.Products;
 using Microsoft.EntityFrameworkCore;
 
 namespace EGeek.Catalog.Infra;

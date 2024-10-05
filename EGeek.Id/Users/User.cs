@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
 
-namespace EGeek.Id;
+namespace EGeek.Id.Users;
 
 internal class User : IdentityUser
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EGeek.Catalog;
+namespace EGeek.Catalog.Products;
 
 internal class Product
 {

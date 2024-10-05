@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 
-namespace EGeek.Id;
+namespace EGeek.Id.Users;
 
 internal static class GetMeUseCase
 {

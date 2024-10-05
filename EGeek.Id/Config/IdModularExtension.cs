@@ -1,5 +1,6 @@
 using System.Reflection;
 using EGeek.Id.Infra;
+using EGeek.Id.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

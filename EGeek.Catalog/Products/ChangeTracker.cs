@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EGeek.Catalog;
+namespace EGeek.Catalog.Products;
 
-public class ChangeTracker
+internal class ChangeTracker
 {
     public int Id { get; private set; }
     [MaxLength(128)]

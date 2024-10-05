@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using EGeek.Id.Contract;
+using EGeek.Id.Users;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 

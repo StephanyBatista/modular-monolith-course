@@ -1,12 +1,10 @@
 using System.Security.Claims;
 using EGeek.Catalog.Infra;
-using EGeek.Id.Contract;
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace EGeek.Catalog;
+namespace EGeek.Catalog.Products;
 
 internal static class PatchStockUseCase
 {

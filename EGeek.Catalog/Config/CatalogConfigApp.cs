@@ -1,3 +1,4 @@
+using EGeek.Catalog.Products;
 using Microsoft.AspNetCore.Builder;
 
 namespace EGeek.Catalog.Config;

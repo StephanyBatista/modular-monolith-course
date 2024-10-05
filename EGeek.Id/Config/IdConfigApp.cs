@@ -1,3 +1,4 @@
+using EGeek.Id.Users;
 using Microsoft.AspNetCore.Builder;
 
 namespace EGeek.Id.Config;

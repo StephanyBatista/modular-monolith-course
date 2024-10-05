@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace EGeek.Id;
+namespace EGeek.Id.Users;
 
 internal static class PostTokenUseCase
 {

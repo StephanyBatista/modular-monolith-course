@@ -2,9 +2,9 @@ using System.Security.Claims;
 using EGeek.Id.Contract;
 using MediatR;
 
-namespace EGeek.Catalog;
+namespace EGeek.Catalog.Products;
 
-public class RoleValidator(IMediator mediator)
+internal class RoleValidator(IMediator mediator)
 {
     public async Task<bool> Validate(ClaimsPrincipal principal)
     {
