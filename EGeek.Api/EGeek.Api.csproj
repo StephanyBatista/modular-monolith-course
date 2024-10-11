@@ -18,6 +18,7 @@
     <ItemGroup>
       <ProjectReference Include="..\EGeek.Catalog\EGeek.Catalog.csproj" />
       <ProjectReference Include="..\EGeek.Id\EGeek.Id.csproj" />
+      <ProjectReference Include="..\EGeek.Purchase\EGeek.Purchase.csproj" />
     </ItemGroup>
 
 </Project>

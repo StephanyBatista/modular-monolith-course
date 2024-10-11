@@ -1,16 +1,22 @@
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Principal;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
 
 namespace EGeek.Purchase.ShoppingCarts;
+
+internal enum Status
+{
+    Pending,
+    Finish
+}
 
 internal class ShoppingCart
 {
     public int Id { get; private set; }
+    [MaxLength(128)]
     public string Email { get; private set; }
     public decimal Total { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public List<Item> Items { get; private set; } = [];
+    public Status Status { get; private set; }
 
     public ShoppingCart(string email)
     {
@@ -18,6 +24,7 @@ internal class ShoppingCart
             throw new ArgumentException("Email is required");
         
         Email = email;
+        Status = Status.Pending;
     }
 
     public void AddItem(string productId, string productName, int quantity, decimal price)

@@ -20,11 +20,16 @@ internal static class PostAddProductUseCase
         if(result == null)
             throw new ArgumentException("Product not found");
         
+        if(request.Quantity > result.QuantityInStock)
+            throw new ArgumentException("Quantity out of stock");
+        
         var email = principal.FindFirst(ClaimTypes.Email)?.Value;
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email is required");
 
-        var cart = await context.ShoppingCarts.FindAsync(email) ?? new ShoppingCart(email);
+        var cart = 
+            context.ShoppingCarts.FirstOrDefault(p => p.Email == email && p.Status == Status.Pending) ?? 
+            new ShoppingCart(email);
 
         cart.AddItem(request.ProductId, result.Name, request.Quantity, result.Price);
         

@@ -116,3 +116,15 @@ Authorization: Bearer {{auth_token}}
 
 ###
 
+POST {{url}}/v1/purchase/shopping-cart/add-product
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "productId": "c99d69a9-5831-4672-a64e-af27a39e4bcc",
+  "quantity": "62"
+}
+
+
+
