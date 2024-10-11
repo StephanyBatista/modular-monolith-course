@@ -1,0 +1,6 @@
+@EGeek.FakeApi_HostAddress = http://localhost:5033
+
+GET {{EGeek.FakeApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
