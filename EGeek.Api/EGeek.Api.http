@@ -108,10 +108,14 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "weightInGrams": 500,
-  "heightInCentimeters": 20,
-  "widthInCentimeters": 15,
-  "state": "SP"
+  "Products": [
+    {
+      "weightInGrams": 500,
+      "heightInCentimeters": 20,
+      "widthInCentimeters": 15
+    }
+  ],
+  "zipCode": "79000000"
 }
 
 ###
@@ -129,6 +133,13 @@ Authorization: Bearer {{auth_token}}
 ###
 
 GET {{url}}/v1/purchase/shopping-cart
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+###
+
+GET {{url}}/v1/purchase/shipping/cost/79000000
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}

@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalException>();
 builder.Services.AddProblemDetails();
+builder.Services.AddHttpClient();
 
 List<Assembly> mediatoRAssembly = [typeof(Program).Assembly];
 

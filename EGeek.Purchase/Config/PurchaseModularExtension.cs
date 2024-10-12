@@ -1,4 +1,6 @@
 using System.Reflection;
+using EGeek.Purchase.Checkout;
+using EGeek.Purchase.Infra.ShippingCost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,5 +20,6 @@ public static class PurchaseModularExtension
                 config => config.MigrationsHistoryTable("__EFMigrationsHistory", "purchase"));
         });
         mediatoRAssembly.Add(typeof(PurchaseModularExtension).Assembly);
+        services.AddScoped<IShippingCost, ShippingCostApi>();
     }
 }

@@ -12,8 +12,15 @@ internal class GetProductHandler(CatalogDbContext context)
         var product = await context.Products.FindAsync(request.Id);
         if (product == null)
             return null;
-        
-        var response = new GetProductResponse(product.Name, product.QuantityInStock, product.Price);
+
+        var response = new GetProductResponse(
+            product.Name,
+            product.QuantityInStock,
+            product.Price,
+            product.WeightInGrams,
+            product.HeightInCentimeters,
+            product.WidthInCentimeters
+        );
         return response;
     }
 }
