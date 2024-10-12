@@ -11,5 +11,6 @@ public static class PurchaseConfigApp
         app.MapPost("/v1/purchase/shopping-cart/add-product", PostAddProductUseCase.Action);
         app.MapGet("/v1/purchase/shopping-cart", GetShoppingCartUseCase.Action);
         app.MapGet("/v1/purchase/shipping/cost/{zipCode}", GetShippingCostUseCase.Action);
+        app.MapPost("/v1/purchase/checkout", PostCheckoutUseCase.Action);
     }
 }

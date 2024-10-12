@@ -36,4 +36,9 @@ internal class ShoppingCart
         Items.Add(new Item(productId, productName, quantity, price));
         Total = Items.Sum(i => i.PriceTotal);
     }
+
+    public void Finish()
+    {
+        Status = Status.Finish;
+    }
 }

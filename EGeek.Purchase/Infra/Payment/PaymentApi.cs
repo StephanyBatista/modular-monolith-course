@@ -20,7 +20,7 @@ internal class PaymentApi : IPayment
     }
     
     public async Task<(bool, string)> Process(
-        decimal ammount,
+        decimal amount,
         string cardNumber,
         string cardHolderName,
         DateTime expirationDate,
@@ -29,7 +29,7 @@ internal class PaymentApi : IPayment
     {
         var body = new
         {
-            ammount, cardNumber, cardHolderName, expirationDate, cvv
+            amount, cardNumber, cardHolderName, expirationDate, cvv
         };
         var json = JsonSerializer.Serialize(body);
         var content = new StringContent(json, Encoding.UTF8, "application/json");

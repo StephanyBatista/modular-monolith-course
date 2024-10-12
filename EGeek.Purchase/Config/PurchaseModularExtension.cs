@@ -1,5 +1,6 @@
 using System.Reflection;
 using EGeek.Purchase.Checkout;
+using EGeek.Purchase.Infra.Payment;
 using EGeek.Purchase.Infra.ShippingCost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,5 +22,6 @@ public static class PurchaseModularExtension
         });
         mediatoRAssembly.Add(typeof(PurchaseModularExtension).Assembly);
         services.AddScoped<IShippingCost, ShippingCostApi>();
+        services.AddScoped<IPayment, PaymentApi>();
     }
 }

@@ -3,7 +3,7 @@ namespace EGeek.Purchase.Checkout;
 internal interface IPayment
 {
     public Task<(bool, string)> Process(
-        decimal ammount,
+        decimal amount,
         string cardNumber,
         string cardHolderName,
         DateTime expirationDate,

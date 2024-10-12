@@ -71,4 +71,10 @@ internal class Product
         Price = price;
         ChangeTrackers.Add(new ChangeTracker(changedBy, null, Price));
     }
+
+    public void RemoveQuantityInStock(int quantity, string changedBy)
+    {
+        QuantityInStock -= quantity;
+        ChangeTrackers.Add(new ChangeTracker(changedBy, QuantityInStock, null));
+    }
 }

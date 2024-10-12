@@ -126,8 +126,8 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "productId": "c99d69a9-5831-4672-a64e-af27a39e4bcc",
-  "quantity": "62"
+  "productId": "b1ab7370-fc4f-4bbc-bcc9-58adc34b440f",
+  "quantity": "2"
 }
 
 ###
@@ -143,6 +143,21 @@ GET {{url}}/v1/purchase/shipping/cost/79000000
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
+
+###
+
+POST {{url}}/v1/purchase/checkout
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "zipCode": "79000000",
+  "cardNumber": "1234567890123456",
+  "cardholderName": "John Doe",
+  "expirationDate": "2024-12-31",
+  "cvv": "123"
+}
 
 
 
