@@ -126,5 +126,14 @@ Authorization: Bearer {{auth_token}}
   "quantity": "62"
 }
 
+###
+
+GET {{url}}/v1/purchase/shopping-cart
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+
+
 
 
