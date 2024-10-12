@@ -3,6 +3,7 @@ using EGeek.Catalog.Contract;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 
 namespace EGeek.Purchase.ShoppingCarts;
 
@@ -28,7 +29,9 @@ internal static class PostAddProductUseCase
             throw new ArgumentException("Email is required");
 
         var cart = 
-            context.ShoppingCarts.FirstOrDefault(p => p.Email == email && p.Status == Status.Pending) ?? 
+            context.ShoppingCarts
+                .Include(s => s.Items)
+                .FirstOrDefault(p => p.Email == email && p.Status == Status.Pending) ?? 
             new ShoppingCart(email);
 
         cart.AddItem(request.ProductId, result.Name, request.Quantity, result.Price);

@@ -25,6 +25,7 @@ internal class ShoppingCart
         
         Email = email;
         Status = Status.Pending;
+        Total = 0;
     }
 
     public void AddItem(string productId, string productName, int quantity, decimal price)
@@ -33,5 +34,6 @@ internal class ShoppingCart
             throw new ArgumentException("Product already exists");
         
         Items.Add(new Item(productId, productName, quantity, price));
+        Total = Items.Sum(i => i.PriceTotal);
     }
 }
