@@ -1,7 +1,7 @@
 using EGeek.Purchase.ShoppingCarts;
 using Microsoft.EntityFrameworkCore;
 
-namespace EGeek.Purchase;
+namespace EGeek.Purchase.Infra.Database;
 
 internal class PurchaseDbContext(DbContextOptions<PurchaseDbContext> options) : DbContext(options)
 {

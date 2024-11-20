@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using EGeek.Catalog.Contract;
+using EGeek.Purchase.Infra.Database;
 using EGeek.Purchase.ShoppingCarts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

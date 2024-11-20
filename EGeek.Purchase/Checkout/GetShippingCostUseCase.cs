@@ -5,7 +5,6 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
 
 namespace EGeek.Purchase.Checkout;
 
@@ -17,7 +16,7 @@ internal static class GetShippingCostUseCase
     public static async Task<Ok<GetShippingCostResponse>> Action(
             string zipCode,
             ClaimsPrincipal principal,
-            PurchaseDbContext context,
+            IShoppingCartRepository repository,
             IShippingCost shippingCost,
             IMediator mediator
         )
@@ -25,10 +24,8 @@ internal static class GetShippingCostUseCase
         var email = principal.FindFirst(ClaimTypes.Email)?.Value;
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email is required");
-        
-        var cart = context.ShoppingCarts
-            .Include(s => s.Items)
-            .FirstOrDefault(s => s.Email == email && s.Status == Status.Pending);
+
+        var cart = repository.GetBy(email, Status.Pending);
         
         if (cart == null || cart.Id == 0)
             throw new ArgumentException("Client does not have a shopping cart");
