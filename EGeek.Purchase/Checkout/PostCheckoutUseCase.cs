@@ -1,12 +1,10 @@
 using System.Security.Claims;
 using EGeek.Catalog.Contract;
-using EGeek.Purchase.Infra.Database;
 using EGeek.Purchase.ShoppingCarts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
 
 namespace EGeek.Purchase.Checkout;
 
@@ -31,16 +29,8 @@ internal static class PostCheckoutUseCase
         if (cart == null || cart.Id == 0)
             throw new ArgumentException("Client does not have a shopping cart");
         
-        //TODO: Refact this part
-        var productsReponse = new List<GetProductResponse>();
-        foreach (var item in cart.Items)
-        {
-            var query = new GetProductQuery(item.ProductId);
-            var product = await mediator.Send(query);
-            productsReponse.Add(product);
-        }
-
-        var cost = await shippingCost.GetCost(productsReponse, request.ZipCode);
+        var products = await GetProductsFromCatalog(mediator, cart);
+        var cost = await shippingCost.GetCost(products, request.ZipCode);
         var total = cart.Total + cost;
 
         var (approved, reason) =
@@ -54,11 +44,7 @@ internal static class PostCheckoutUseCase
         if(!approved)
             return TypedResults.Ok(new PostCheckoutResponse(approved, reason));
 
-        foreach (var item in cart.Items)
-        {
-            var command = new RemoveProductFromStockCommand(item.ProductId, item.Quantity, cart.Id);
-            await mediator.Send(command);
-        }
+        await RemoveProductsFromStock(mediator, cart);
 
         cart.Finish();
 
@@ -66,14 +52,26 @@ internal static class PostCheckoutUseCase
         
         return TypedResults.Ok(new PostCheckoutResponse(true, reason));
     }
+
+    private static async Task RemoveProductsFromStock(IMediator mediator, ShoppingCart cart)
+    {
+        foreach (var item in cart.Items)
+        {
+            var command = new RemoveProductFromStockCommand(item.ProductId, item.Quantity, cart.Id);
+            await mediator.Send(command);
+        }
+    }
+
+    private static async Task<List<GetProductResponse>> GetProductsFromCatalog(IMediator mediator, ShoppingCart cart)
+    {
+        var productsReponse = new List<GetProductResponse>();
+        foreach (var item in cart.Items)
+        {
+            var query = new GetProductQuery(item.ProductId);
+            var product = await mediator.Send(query);
+            productsReponse.Add(product);
+        }
+
+        return productsReponse;
+    }
 }
-
-internal record PostCheckoutResponse(bool Approved, string Reason);
-
-internal record PostCheckoutRequest(
-    string ZipCode,
-    string CardNumber,
-    string CardholderName,
-    DateTime ExpirationDate,
-    string Cvv
-);
