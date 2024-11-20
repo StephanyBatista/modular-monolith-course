@@ -126,8 +126,8 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "productId": "b1ab7370-fc4f-4bbc-bcc9-58adc34b440f",
-  "quantity": "2"
+  "productId": "9dac9b76-d22b-45ba-a3fc-ba3f60cedf2e",
+  "quantity": "1"
 }
 
 ###

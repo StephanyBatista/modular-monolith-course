@@ -1,15 +1,16 @@
 using EGeek.Catalog.Contract;
-using EGeek.Catalog.Infra.Database;
+using EGeek.Catalog.Products;
 using MediatR;
+using GetProductResponse = EGeek.Catalog.Contract.GetProductResponse;
 
 namespace EGeek.Catalog.Handler;
 
-internal class GetProductHandler(CatalogDbContext context)
+internal class GetProductHandler(IProductRepository repository)
     : IRequestHandler<GetProductQuery, GetProductResponse?>
 {
     public async Task<GetProductResponse?> Handle(GetProductQuery request, CancellationToken cancellationToken)
     {
-        var product = await context.Products.FindAsync(request.Id);
+        var product = await repository.GetById(request.Id);
         if (product == null)
             return null;
 
