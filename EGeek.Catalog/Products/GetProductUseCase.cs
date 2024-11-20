@@ -1,4 +1,3 @@
-using EGeek.Catalog.Infra;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -8,9 +7,9 @@ internal static class GetProductUseCase
 {
     public static async Task<Results<Ok<GetProductResponse>, NotFound>> Action(
         string id,
-        CatalogDbContext context)
+        IProductRepository repository)
     {
-        var product = await context.Products.FindAsync(id);
+        var product = await repository.GetById(id);
         if (product == null)
             return TypedResults.NotFound();
 

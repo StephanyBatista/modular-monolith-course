@@ -42,10 +42,10 @@ Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "name": "Sample Product",
+  "name": "Test Product 1",
   "description": "This is a sample product description.",
-  "price": 99.99,
-  "quantityInStock": 50,
+  "price": 33.45,
+  "quantityInStock": 10,
   "weightInGrams": 500,
   "heightInCentimeters": 10,
   "widthInCentimeters": 5
@@ -59,30 +59,30 @@ Content-Type: application/json
 
 ###
 
-GET {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc
+GET {{url}}/v1/catalog/products/9dac9b76-d22b-45ba-a3fc-ba3f60cedf2e
 Accept: application/json
 Content-Type: application/json
 
 ###
 
-PATCH {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc/stock
+PATCH {{url}}/v1/catalog/products/9dac9b76-d22b-45ba-a3fc-ba3f60cedf2e/stock
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "quantityInStock": 2
+  "quantityInStock": 15
 }
 
 ###
 
-PATCH {{url}}/v1/catalog/products/c99d69a9-5831-4672-a64e-af27a39e4bcc/price
+PATCH {{url}}/v1/catalog/products/9dac9b76-d22b-45ba-a3fc-ba3f60cedf2e/price
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer {{auth_token}}
 
 {
-  "price": 10.40
+  "price": 32.33
 }
 
 ###

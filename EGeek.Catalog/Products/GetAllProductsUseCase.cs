@@ -1,4 +1,3 @@
-using EGeek.Catalog.Infra;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -7,9 +6,9 @@ namespace EGeek.Catalog.Products;
 internal static class GetAllProductsUseCase
 {
     public static Ok<IEnumerable<GetProductResponse>> Action(
-        CatalogDbContext context)
+        IProductRepository repository)
     {
-        var products = context.Products.ToList();
+        var products = repository.GetAll();
         var response = products.Select(product => new GetProductResponse(
             product.Id,
             product.Name,

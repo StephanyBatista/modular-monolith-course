@@ -1,5 +1,5 @@
 using EGeek.Catalog.Contract;
-using EGeek.Catalog.Infra;
+using EGeek.Catalog.Infra.Database;
 using MediatR;
 
 namespace EGeek.Catalog.Handler;

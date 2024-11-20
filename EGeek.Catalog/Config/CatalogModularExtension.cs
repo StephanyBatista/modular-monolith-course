@@ -1,5 +1,5 @@
 using System.Reflection;
-using EGeek.Catalog.Infra;
+using EGeek.Catalog.Infra.Database;
 using EGeek.Catalog.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,5 +21,6 @@ public static class CatalogModularExtension
         });
         mediatoRAssembly.Add(typeof(CatalogModularExtension).Assembly);
         services.AddScoped<RoleValidator>();
+        services.AddScoped<IProductRepository, ProductRepository>();
     }
 }

@@ -1,5 +1,4 @@
 using System.Security.Claims;
-using EGeek.Catalog.Infra;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -13,19 +12,19 @@ internal static class PatchStockUseCase
         string id,
         PatchStockRequest request,
         ClaimsPrincipal principal,
-        CatalogDbContext context,
+        IProductRepository repository,
         RoleValidator roleValidator)
     {
         if (!await roleValidator.Validate(principal))
             return TypedResults.Unauthorized();
 
-        var product = await context.Products.FindAsync(id);
+        var product = await repository.GetById(id);
         if (product == null)
             return TypedResults.NotFound();
         
         var email = principal.FindFirst(ClaimTypes.Email)?.Value;
         product.AddQuantityInStock(request.QuantityInStock, email!);
-        await context.SaveChangesAsync();
+        await repository.Commit();
         
         return TypedResults.Ok();
     }

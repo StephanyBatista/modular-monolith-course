@@ -1,5 +1,4 @@
 using System.Security.Claims;
-using EGeek.Catalog.Infra;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -12,7 +11,7 @@ internal static class PostProductUseCase
     public static async Task<Results<Created<string>, UnauthorizedHttpResult>> Action(
         PostProductRequest request,
         ClaimsPrincipal principal,
-        CatalogDbContext context,
+        IProductRepository repository,
         RoleValidator roleValidator)
     {
         if (!await roleValidator.Validate(principal))
@@ -20,8 +19,8 @@ internal static class PostProductUseCase
         
         var email = principal.FindFirst(ClaimTypes.Email)?.Value;
         var product = new Product(request, email!);
-        context.Products.Add(product);
-        await context.SaveChangesAsync();
+        await repository.Save(product);
+        await repository.Commit();
         
         return TypedResults.Created($"/v1/catalog/products/{product.Id}", product.Id);
     }
