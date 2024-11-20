@@ -16,7 +16,7 @@ internal static class PostCheckoutUseCase
     public static async Task<Ok<PostCheckoutResponse>> Action(
         PostCheckoutRequest request,
         ClaimsPrincipal principal,
-        PurchaseDbContext context,
+        IShoppingCartRepository repository,
         IShippingCost shippingCost,
         IPayment payment,
         IMediator mediator
@@ -26,9 +26,7 @@ internal static class PostCheckoutUseCase
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email is required");
         
-        var cart = context.ShoppingCarts
-            .Include(s => s.Items)
-            .FirstOrDefault(s => s.Email == email && s.Status == Status.Pending);
+        var cart = repository.GetBy(email, Status.Pending);
         
         if (cart == null || cart.Id == 0)
             throw new ArgumentException("Client does not have a shopping cart");
@@ -63,8 +61,8 @@ internal static class PostCheckoutUseCase
         }
 
         cart.Finish();
-        
-        await context.SaveChangesAsync();
+
+        await repository.Commit();
         
         return TypedResults.Ok(new PostCheckoutResponse(true, reason));
     }
