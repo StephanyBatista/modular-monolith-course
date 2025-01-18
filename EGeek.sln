@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Purchase", "EGeek.Pur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Catalog.Contract", "EGeek.Catalog.Contract\EGeek.Catalog.Contract.csproj", "{47E08E25-B0E4-4E45-A314-583B9EC2FCE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Order", "EGeek.Order\EGeek.Order.csproj", "{FA090A03-8E3B-4DB1-994E-51680A38EC66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGeek.Order.Contract", "EGeek.Order.Contract\EGeek.Order.Contract.csproj", "{F36A21DB-8A7C-4894-AFCF-37093118B5A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{47E08E25-B0E4-4E45-A314-583B9EC2FCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E08E25-B0E4-4E45-A314-583B9EC2FCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E08E25-B0E4-4E45-A314-583B9EC2FCE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA090A03-8E3B-4DB1-994E-51680A38EC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA090A03-8E3B-4DB1-994E-51680A38EC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA090A03-8E3B-4DB1-994E-51680A38EC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA090A03-8E3B-4DB1-994E-51680A38EC66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F36A21DB-8A7C-4894-AFCF-37093118B5A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F36A21DB-8A7C-4894-AFCF-37093118B5A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F36A21DB-8A7C-4894-AFCF-37093118B5A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F36A21DB-8A7C-4894-AFCF-37093118B5A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

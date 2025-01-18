@@ -155,9 +155,16 @@ Authorization: Bearer {{auth_token}}
   "zipCode": "79000000",
   "cardNumber": "1234567890123456",
   "cardholderName": "John Doe",
-  "expirationDate": "2024-12-31",
+  "expirationDate": "2025-12-31",
   "cvv": "123"
 }
+
+###
+
+GET {{url}}/v1/orders
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
 
 
 

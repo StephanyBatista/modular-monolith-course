@@ -3,6 +3,7 @@ using System.Text;
 using EGeek.Api;
 using EGeek.Catalog.Config;
 using EGeek.Id.Config;
+using EGeek.Order.Config;
 using EGeek.Purchase.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -22,6 +23,7 @@ List<Assembly> mediatoRAssembly = [typeof(Program).Assembly];
 IdModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
 CatalogModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
 PurchaseModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
+OrderModularExtension.Apply(builder.Services, builder.Configuration, mediatoRAssembly);
 
 builder.Services.AddMediatR(config => 
     config.RegisterServicesFromAssemblies(mediatoRAssembly.ToArray()));
@@ -63,6 +65,7 @@ app.UseHttpsRedirection();
 IdConfigApp.Apply(app);
 CatalogConfigApp.Apply(app);
 PurchaseConfigApp.Apply(app);
+OrderConfigApp.Apply(app);
 
 app.UseExceptionHandler();
 

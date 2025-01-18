@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using EGeek.Catalog.Contract;
+using EGeek.Order.Contract;
 using EGeek.Purchase.ShoppingCarts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -45,6 +46,7 @@ internal static class PostCheckoutUseCase
             return TypedResults.Ok(new PostCheckoutResponse(approved, reason));
 
         await RemoveProductsFromStock(mediator, cart);
+        await CreateOrder(mediator, cart, request.ZipCode);
 
         cart.Finish();
 
@@ -60,6 +62,18 @@ internal static class PostCheckoutUseCase
             var command = new RemoveProductFromStockCommand(item.ProductId, item.Quantity, cart.Id);
             await mediator.Send(command);
         }
+    }
+    
+    private static async Task CreateOrder(IMediator mediator, ShoppingCart cart, string zipCode)
+    {
+        var orderProducts = new List<OrderProduct>();
+        foreach (var item in cart.Items)
+        {
+            orderProducts.Add(new OrderProduct(item.ProductId, item.ProductName, item.Quantity));
+        }
+        
+        var command = new CreateOrderCommand(cart.Email, zipCode, orderProducts);
+        await mediator.Send(command);
     }
 
     private static async Task<List<GetProductResponse>> GetProductsFromCatalog(IMediator mediator, ShoppingCart cart)
